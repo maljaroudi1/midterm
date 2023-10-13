@@ -96,7 +96,7 @@ app.get('/api/product', async (req, res) => {
 
 //find by ID
 app.get('/api/product/:id', async (req, res) => {
-    const productId = req.params._id; // Get the product ID from the URL parameters
+    const productId = req.params._id;
 
     try {
         const product = await Product.findOne({  productId });
@@ -136,11 +136,9 @@ app.get('/api/product/find/:name', async (req, res) => {
 
 //update by product ID
 app.put('/api/product/put/:id', async (req, res) => {
-    const productId = req.params.id; // Get the 'id' parameter from the URL
-    const category = req.query.category; // Get the 'category' query parameter from the URL
-
+    const productId = req.params.id;
     try {
-      // Use productId and category in your update logic
+
       const updatedProduct = await Product.findByIdAndUpdate(productId, req.body, {
         new: true,
       });
